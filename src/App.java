@@ -26,8 +26,6 @@ public class App {
     public static void main(String args[]) {
         ReadandStoreData();
 
-        System.out.println(m.doubleNumber(4));
-
     }
 
     public static void ReadandStoreData() {
