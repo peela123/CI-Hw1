@@ -1,52 +1,60 @@
 
-import java.util.*;
 import java.util.Random;
 
 public class Neuron {
-    // variable
-    public List<Double> weights;
-    public double output;
-    public double delta;
-    Random rand = new Random();
-    public double randomnumber = rand.nextDouble();
+
+    // input output and weight
+    public int[][] inputdata;
+
+    public double[] preWeight;
+    // random
+    public double rangeMin = -1.0;
+    public double rangeMax = 1.0;
+
+    // constant
+    public double bias = 1.0;
+    public double e = 2.71828182846;
 
     // constructor
-    public Neuron() {
+    public Neuron(int weightCount) {
+        this.preWeight = new double[weightCount];
+        for (int i = 0; i < weightCount; i++) {
+            double r = new Random().nextDouble();
+            double result = rangeMin + (r * (rangeMax - rangeMin));
+            this.preWeight[i] = result;
+
+        }
 
     }
 
-    // method
-    // public double getRandom() {
-    // return randomnumber;
+    // public static void setfirstWeight() {
+
+    // for (int i = 0; i < 314; i++) {
+    // for (int j = 0; j < 8; j++) {
+    // double r = new Random().nextDouble();
+    // double result = rangeMin + (r * (rangeMax - rangeMin));
+    // weight[i][j] = result;
     // }
-
-    // public void SetWeights() {
-    // this.weights = weights;
-
     // }
-
-    // public List<Double> GetWeights() {
-    // return weights;
-    // }
-
-    // public void SetOutput() {
-    // this.output = output;
 
     // }
 
-    // public double GetOutput() {
-    // return output;
+    public double activationFucntion(double[] data) {
+        // net value
+        double net = 0.0;
 
-    // }
+        for (int i = 0; i < data.length; i++) {
+            net += data[i] * this.preWeight[i];
 
-    // public void SetDelta() {
-    // this.delta = delta;
+        }
 
-    // }
+        // net with theta
+        net = net + this.bias;
+        // activation
+        double activateValue = net <= 0 ? 0 : net;
 
-    // public double GetDelta() {
-    // return delta;
+        return (double) net;
 
-    // }
+    }
 
 }
