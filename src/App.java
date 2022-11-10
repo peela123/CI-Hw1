@@ -43,6 +43,8 @@ public class App {
             System.out.println("\n");
         }
 
+        System.out.println("loss = " + lossFunction(outputResult, desireoutputdata));
+
         // System.out.println(lossFunction(outputResult, desireoutputdata));
 
         // System.out.println(firsthiddenResult[0].length);
