@@ -27,18 +27,6 @@ public class Neuron {
 
     }
 
-    // public static void setfirstWeight() {
-
-    // for (int i = 0; i < 314; i++) {
-    // for (int j = 0; j < 8; j++) {
-    // double r = new Random().nextDouble();
-    // double result = rangeMin + (r * (rangeMax - rangeMin));
-    // weight[i][j] = result;
-    // }
-    // }
-
-    // }
-
     public double activationFucntion(double[] data) {
         // net value
         double net = 0.0;
@@ -47,13 +35,17 @@ public class Neuron {
             net += data[i] * this.preWeight[i];
 
         }
+        // System.out.println(net);
+        // for (int i = 0; i < data.length; i++) {
+        // System.out.println(data[i]);
+        // }
 
         // net with theta
         net = net + this.bias;
         // activation
         double activateValue = net <= 0 ? 0 : net;
 
-        return (double) net;
+        return activateValue;
 
     }
 

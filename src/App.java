@@ -35,37 +35,26 @@ public class App {
         double[][] firsthiddenResult = firsthiddenlayer.feedForward(inputdata);
         double[][] outputResult = outputlayer.feedForward(firsthiddenResult);
 
-        System.out.println(lossFunction(outputResult, desireoutputdata));
+        // print output node result
+        for (int i = 0; i < outputResult.length; i++) {
+            for (int j = 0; j < outputResult[0].length; j++) {
+                System.out.print("output row[" + i + "] = " + outputResult[i][j] + " ");
+            }
+            System.out.println("\n");
+        }
+
+        // System.out.println(lossFunction(outputResult, desireoutputdata));
 
         // System.out.println(firsthiddenResult[0].length);
         // System.out.println(outputResult.length);
         // System.out.println(outputResult[0].length);
 
+        // // print first
         // for (int i = 0; i < firsthiddenResult.length; i++) {
         // for (int j = 0; j < firsthiddenResult[0].length; j++) {
         // System.out.print(firsthiddenResult[i][j] + " ");
         // }
         // System.out.println("\n");
-        // }
-
-        // for (int i = 0; i < outputResult.length; i++) {
-        // for (int j = 0; j < outputResult[0].length; j++) {
-        // System.out.print(outputResult[i][j] + " ");
-        // }
-        // System.out.println("\n");
-        // }
-
-        // print input
-        // for (int i = 0; i < 314; i++) {
-        // for (int j = 0; j < 8; j++) {
-        // System.out.print(inputdata[i][j] + " ");
-        // }
-        // System.out.println("\n");
-        // }
-
-        // read desire
-        // for (int i = 0; i < desireoutputdata.length; i++) {
-        // System.out.println(desireoutputdata[i][0]);
         // }
 
     }
@@ -97,7 +86,7 @@ public class App {
                     for (int k = 0; k < 8; k++) {
                         inputdata[count - 2][k] = nums2[k];
                     }
-                    // store output
+                    // store desireoutput
                     desireoutputdata[count - 2][0] = nums2[8];
 
                 }
@@ -128,7 +117,23 @@ public class App {
 
     }
 
-    // public double backPropagation() {
+    public static void printInput() {
+        for (int i = 0; i < 314; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(inputdata[i][j] + " ");
+            }
+            System.out.println("\n");
+        }
 
-    // }
+    }
+
+    public static void printDesireoutput() {
+
+        for (int i = 0; i < desireoutputdata.length; i++) {
+            System.out.println(desireoutputdata[i][0]);
+        }
+        System.out.println(inputdata[0][0]);
+
+    }
+
 }
